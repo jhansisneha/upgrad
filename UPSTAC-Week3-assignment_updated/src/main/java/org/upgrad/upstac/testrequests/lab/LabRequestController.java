@@ -52,8 +52,8 @@ public class LabRequestController {
     @GetMapping
     @PreAuthorize("hasAnyRole('TESTER')")
     public List<TestRequest> getForTester()  {
-        User user1 = userLoggedInService.getLoggedInUser();
-        return testRequestQueryService.findByTester(user1);
+        User testerUser = userLoggedInService.getLoggedInUser();
+        return testRequestQueryService.findByTester(testerUser);
     }
 
 
